@@ -1,6 +1,22 @@
 {
     "name": "ui-base",
-    "version": "0.0.0",
+    "version": "0.0.1",
+    "description": "UI Base is a launch pad for Angular webapps that speeds up the take-off",
+    "license": "MIT",
+    "authors": [{
+        "name": "Justin Woodcock",
+        "email": "jwoodcock@undergroundelephant.com"
+    }],
+    "repository": {
+        "type": "git",
+        "url": "git@elephanthub.net:ui/ui-base.git"
+    },
+    "keywords": [
+        "angular",
+        "grunt",
+        "SASS",
+        "Bootstrap"
+    ],
     "dependencies": {
         "angular": "1.2.15",
         "json3": "~3.2.6",

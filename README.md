@@ -1,5 +1,5 @@
 #UI Base
-is a launch pad for Angular webapps that will jump start your take off.
+UI Base is a launch pad for Angular webapps that speeds up the take-off
 
 ##Dependencies
 These dependencies need to be installed before trying to fire up the project.
