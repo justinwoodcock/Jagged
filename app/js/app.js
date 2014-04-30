@@ -7,15 +7,23 @@ var uiBaseboxApp = angular.module('uiBaseboxApp', [
 
 uiBaseboxApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.defaults.useXDomain = true;
-    $stateProvider.state('create', {
+    $stateProvider.state('main', {
         url: '/',
         views: {
             content: {
-                templateUrl: '',
-                controller: ''
+                templateUrl: '/views/main/partial.main.html',
+                controller: 'MainController'
+            }
+        }
+    }).state('info', {
+        url: '/info',
+        views: {
+            content: {
+                templateUrl: '/views/info/partial.info.html',
+                controller: 'InfoController'
             }
         }
     });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/info');
 });
