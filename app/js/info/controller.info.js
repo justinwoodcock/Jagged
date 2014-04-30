@@ -11,7 +11,7 @@ uiBase.controller('InfoController', ['$scope',
         }, {
             item: 'add fontello icon font',
             description: 'just a few basic font icons along with the config for future additions.',
-            githubUrl: '#',
+            githubUrl: 'https://elephanthub.net/ui/ui-base/issues/1',
             completed: false
         }, {
             item: 'add list of thirdparty libraries used',
