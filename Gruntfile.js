@@ -2,20 +2,23 @@
 
 module.exports = function(grunt) {
 
-    // load the the grunt modules automated style.
+    // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
-    // time our tasks.
+    // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    // Define the configuration for all the tasks
     grunt.initConfig({
 
+        // Project settings
         config: {
             // configurable paths
             app: require('./bower.json').appPath || 'app',
             dist: 'dist'
         },
 
+        // Watches files for changes and runs tasks based on the changed files
         watch: {
             bower: {
                 files: ['bower.json'],
@@ -32,9 +35,9 @@ module.exports = function(grunt) {
                 files: ['test/spec/{,*/}*.js'],
                 tasks: ['newer:jshint:test', 'karma']
             },
-            styles: {
-                files: ['<%= config.app %>/sass/{,*/}*.sass'],
-                tasks: ['sass', 'newer:copy:styles', 'autoprefixer', 'csscomb']
+            compass: {
+                files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
+                tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
                 files: ['Gruntfile.js']
@@ -51,36 +54,13 @@ module.exports = function(grunt) {
             }
         },
 
+        // The actual grunt server settings
         connect: {
             options: {
                 port: 9000,
                 // Change this to '0.0.0.0' to access the server from outside.
                 hostname: 'localhost',
                 livereload: 35729
-            },
-            // proxies: [{
-            //     context: '/v1/create/google',
-            //     host: '127.0.0.1',
-            //     port: 8000
-            // }],
-            middleware: function(connect, options) {
-                if (!Array.isArray(options.base)) {
-                    options.base = [options.base];
-                }
-
-                // Setup the proxy
-                var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
-
-                // Serve static files.
-                options.base.forEach(function(base) {
-                    middlewares.push(connect.static(base));
-                });
-
-                // Make directory browse-able.
-                var directory = options.directory || options.base[options.base.length - 1];
-                middlewares.push(connect.directory(directory));
-
-                return middlewares;
             },
             livereload: {
                 options: {
@@ -108,6 +88,14 @@ module.exports = function(grunt) {
             }
         },
 
+        // Make sure our code is beautiful.
+        // jsbeautifier is currently setup to look at our JS, HTML & CSS.
+        jsbeautifier: {
+            files: ['<%= config.app %>/js/**/*.js', '<%= config.app %>/css/*.css', '<%= config.app %>/views/**/*.html'],
+            options: {}
+        },
+
+        // Make sure code styles are up to par and there are no obvious mistakes
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
@@ -115,16 +103,17 @@ module.exports = function(grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= config.app %>/scripts/{,*/}*.js'
+                '<%= config.app %>/js/**/*.js'
             ],
             test: {
                 options: {
                     jshintrc: 'test/.jshintrc'
                 },
-                src: ['test/spec/{,*/}*.js']
+                src: ['test/spec/**/*.js']
             }
         },
 
+        // Empties folders to start fresh
         clean: {
             dist: {
                 files: [{
@@ -139,16 +128,7 @@ module.exports = function(grunt) {
             server: '.tmp'
         },
 
-        sass: {
-            dev: {
-                expand: true,
-                cwd: 'app/sass/',
-                src: ['style.sass'],
-                dest: 'app/css',
-                ext: '.css'
-            }
-        },
-
+        // Add vendor prefixed styles
         autoprefixer: {
             options: {
                 browsers: ['last 1 version']
@@ -158,8 +138,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '.tmp/css/',
                     src: '{,*/}*.css',
-                    dest: '.tmp/css/',
-                    ext: '.css'
+                    dest: '.tmp/config/'
                 }]
             }
         },
@@ -169,6 +148,39 @@ module.exports = function(grunt) {
             app: {
                 src: ['<%= config.app %>/index.html'],
                 ignorePath: '<%= config.app %>/'
+            },
+            sass: {
+                src: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
+                ignorePath: '<%= config.app %>/bower_components/'
+            }
+        },
+
+        // Compiles Sass to CSS and generates necessary files if requested
+        compass: {
+            options: {
+                sassDir: '<%= config.app %>/sass',
+                cssDir: '.tmp/css',
+                generatedImagesDir: '.tmp/images/generated',
+                imagesDir: '<%= config.app %>/images',
+                javasDir: '<%= config.app %>/js',
+                fontsDir: '<%= config.app %>/fonts',
+                importPath: '<%= config.app %>/bower_components',
+                httpImagesPath: '/images',
+                httpGeneratedImagesPath: '/images/generated',
+                httpFontsPath: '/fonts',
+                relativeAssets: false,
+                assetCacheBuster: false,
+                raw: 'Sass::Script::Number.precision = 10\n'
+            },
+            dist: {
+                options: {
+                    generatedImagesDir: '<%= config.dist %>/images/generated'
+                }
+            },
+            server: {
+                options: {
+                    debugInfo: true
+                }
             }
         },
 
@@ -238,8 +250,7 @@ module.exports = function(grunt) {
                     collapseWhitespace: true,
                     collapseBooleanAttributes: true,
                     removeCommentsFromCDATA: true,
-                    removeOptionalTags: true,
-                    removeComments: true
+                    removeOptionalTags: true
                 },
                 files: [{
                     expand: true,
@@ -261,6 +272,13 @@ module.exports = function(grunt) {
                     src: '*.js',
                     dest: '.tmp/concat/js'
                 }]
+            }
+        },
+
+        // Replace Google CDN references
+        cdnify: {
+            dist: {
+                html: ['<%= config.dist %>/*.html']
             }
         },
 
@@ -298,17 +316,42 @@ module.exports = function(grunt) {
         // Run some tasks in parallel to speed up the build process
         concurrent: {
             server: [
-                'copy:styles'
+                'compass:server'
             ],
             test: [
-                'copy:styles'
+                'compass'
             ],
             dist: [
-                'copy:styles',
-                'imagemin',
-                'svgmin'
+                'compass:dist',
+                'imagemin'
             ]
         },
+
+        // By default, your `index.html`'s <!-- Usemin block --> will take care of
+        // minification. These next options are pre-configured if you do not wish
+        // to use the Usemin blocks.
+        // cssmin: {
+        //   dist: {
+        //     files: {
+        //       '<%= config.dist %>/styles/main.css': [
+        //         '.tmp/styles/{,*/}*.css',
+        //         '<%= config.app %>/styles/{,*/}*.css'
+        //       ]
+        //     }
+        //   }
+        // },
+        // uglify: {
+        //   dist: {
+        //     files: {
+        //       '<%= config.dist %>/js/js.js': [
+        //         '<%= config.dist %>/js/js.js'
+        //       ]
+        //     }
+        //   }
+        // },
+        // concat: {
+        //   dist: {}
+        // },
 
         // Test settings
         karma: {
@@ -316,11 +359,9 @@ module.exports = function(grunt) {
                 configFile: 'karma.conf.js',
                 singleRun: true
             }
-        },
-
-        //csscomb: {},
-
+        }
     });
+
 
     grunt.registerTask('serve', function(target) {
         if (target === 'dist') {
@@ -331,10 +372,7 @@ module.exports = function(grunt) {
             'clean:server',
             'bowerInstall',
             'concurrent:server',
-            'sass:dev',
             'autoprefixer',
-            'jshint',
-            'configureProxies:server',
             'connect:livereload',
             'watch'
         ]);
@@ -348,9 +386,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', [
         'clean:server',
         'concurrent:test',
-        'sass:dev',
         'autoprefixer',
-        'configureProxies:server',
         'connect:test',
         'karma'
     ]);
@@ -360,11 +396,11 @@ module.exports = function(grunt) {
         'bowerInstall',
         'useminPrepare',
         'concurrent:dist',
-        'sass:dev',
         'autoprefixer',
         'concat',
         'ngmin',
         'copy:dist',
+        'cdnify',
         'cssmin',
         'uglify',
         'rev',
@@ -373,9 +409,9 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('default', [
+        'newer:jsbeautifier',
         'newer:jshint',
         'test',
         'build'
     ]);
-
 };

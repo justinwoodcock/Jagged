@@ -1,9 +1,6 @@
 'use strict';
 
 var uiBaseboxApp = angular.module('uiBaseboxApp', [
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
     'ui.router',
     'ui.bootstrap'
 ]);
@@ -14,8 +11,8 @@ uiBaseboxApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) 
         url: '/',
         views: {
             content: {
-                templateUrl: 'views/app/create-form.html',
-                controller: 'CreateFormController'
+                templateUrl: '',
+                controller: ''
             }
         }
     });
