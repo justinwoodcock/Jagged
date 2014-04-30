@@ -1,19 +1,20 @@
 {
-    "name": "base-ui",
+    "name": "ui-base",
     "version": "0.0.0",
-    "description": "is a launch pad for Angular webapps that will jump start your take off.",
+    "description": "UI Base is a launch pad for Angular webapps that speeds up the take-off",
     "main": "Gruntfile.js",
     "scripts": {
         "test": "test"
     },
     "repository": {
         "type": "git",
-        "url": "git@elephanthub.net:jwoodcock/ui-basebox.git"
+        "url": "git@elephanthub.net:ui/ui-base.git"
     },
     "keywords": [
-        "ui",
         "angular",
-        "basebox"
+        "grunt",
+        "SASS",
+        "Bootstrap"
     ],
     "author": "Justin Woodcock",
     "license": "MIT",
