@@ -16,7 +16,7 @@ uiBaseboxApp.controller('InfoController', ['$scope',
         }, {
             item: 'add list of thirdparty libraries used',
             description: 'simple list added to the main view that gives the title and link to all external assets.',
-            completed: false,
+            completed: true,
             githubUrl: '#'
         }]
     }
