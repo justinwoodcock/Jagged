@@ -1,0 +1,52 @@
+<div class="container" id="view-info">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="well">
+                <h1>UI Basebox <span class="label label-primary">v{{version}}</span></h1>
+                <h3>it's a launch pad for Angular webapps that will jump start your take off.</h3>
+                <p>
+                    <a href="#/">Click here</a> to check out the main view that's already stubbed out for you, complete with a controller and test. You'll want to change the routing in <code>app/js/app.js</code> to: <pre>$urlRouterProvider.otherwise('/');</pre>
+                </p>
+            </div>
+        </div>
+        <div id="todos" class="col-xs-6">
+            <div class="well">
+                <h2>Todos</h2>
+                <div class="list-group" ng-repeat="todo in todos">
+                    <a href="{{todo.githubUrl}}" class="list-group-item" ng-class="{active: todo.completed}" title="checkout the github issue: {{todo.githubUrl}}">
+                        <h4 class="list-group-item-heading">{{todo.item}}</h4>
+                        <p class="list-group-item-text">{{todo.description}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="thirdparty" class="col-xs-6">
+            <div class="well">
+                <h2>Thirdparty Libraries</h2>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#" target="_blank">AngularJS:</a> our js framework
+                    </li>
+                    <li>
+                        <a href="https://github.com/angular-ui/ui-router" target="_blank">UI Router:</a> because it's better than ng-router
+                    </li>
+                    <li>
+                        <a href="http://angular-ui.github.io/bootstrap/" target="_blank">UI Bootstrap:</a> Angular Bootstrap components
+                    </li>
+                    <li>
+                        <a href="https://github.com/mgonto/restangular" target="_blank">RESTangular:</a> because the cool kids are doing it
+                    </li>
+                    <li>
+                        <a href="http://getbootstrap.com/css/" target="_blank">Bootstrap:</a> use the freaking responsive grid holmes
+                    </li>
+                    <li>
+                        <a href="http://fontello.com/" target="_blank">Fontello:</a> custom icon font
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="alert alert-info"><strong>Hey!</strong> If anything sucks while you're using this please hit <a href="mailto:jwoodcock@undergroundelephant.com?subject=yo justin, i'm having issues w/ the UI Basebox.">justin up via email</a>.</div>
+        </div>
+    </div>
+</div>
