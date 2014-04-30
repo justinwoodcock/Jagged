@@ -1,7 +1,7 @@
 {
-    "name": "basebox-ui",
+    "name": "base-ui",
     "version": "0.0.0",
-    "description": "Basebox to create an awesome Angular UI",
+    "description": "is a launch pad for Angular webapps that will jump start your take off.",
     "main": "Gruntfile.js",
     "scripts": {
         "test": "test"
