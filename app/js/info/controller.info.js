@@ -1,6 +1,6 @@
 'use strict';
 
-uiBaseboxApp.controller('InfoController', ['$scope',
+uiBase.controller('InfoController', ['$scope',
     function($scope) {
         $scope.version = '0.0.1';
         $scope.todos = [{

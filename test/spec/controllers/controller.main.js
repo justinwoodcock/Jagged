@@ -2,7 +2,7 @@ describe('MainController', function() {
     var scope, $httpBackend;
 
     beforeEach(function() {
-        module('uiBaseboxApp');
+        module('uiBase');
 
         inject(function($injector) {
             var $rootScope, $controller;

@@ -1,11 +1,11 @@
 'use strict';
 
-var uiBaseboxApp = angular.module('uiBaseboxApp', [
+var uiBase = angular.module('uiBase', [
     'ui.router',
     'ui.bootstrap'
 ]);
 
-uiBaseboxApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+uiBase.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     $stateProvider.state('main', {
         url: '/',
