@@ -59,7 +59,7 @@ module.exports = function(grunt) {
             options: {
                 port: 9000,
                 // Change this to '0.0.0.0' to access the server from outside.
-                hostname: 'localhost',
+                hostname: 'ui-base.dev',
                 livereload: 35729
             },
             livereload: {
@@ -163,11 +163,11 @@ module.exports = function(grunt) {
                 generatedImagesDir: '.tmp/images/generated',
                 imagesDir: '<%= config.app %>/images',
                 javasDir: '<%= config.app %>/js',
-                fontsDir: '<%= config.app %>/fonts',
+                fontsDir: '<%= config.app %>/font',
                 importPath: '<%= config.app %>/bower_components',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
-                httpFontsPath: '/fonts',
+                httpFontsPath: '/font',
                 relativeAssets: false,
                 assetCacheBuster: false,
                 raw: 'Sass::Script::Number.precision = 10\n'
@@ -189,10 +189,10 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= config.dist %>/js/{,*/}*.js',
-                        '<%= config.dist %>/css/{,*/}*.css',
-                        '<%= config.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-                        '<%= config.dist %>/fonts/*'
+                        '<%= config.dist %>/js/**/*.js',
+                        '<%= config.dist %>/css/**/*.css',
+                        '<%= config.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+                        '<%= config.dist %>/font/*'
                     ]
                 }
             }
