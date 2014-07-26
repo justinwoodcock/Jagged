@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@elephanthub.net:ui/ui-base.git"
+        "url": "https://github.com/justinwoodcock/UI-Base.git"
     },
     "keywords": [
         "angular",
