@@ -12,10 +12,11 @@ These dependencies need to be installed before trying to fire up the project.
 ##Instructions
 Follow these instructions to fire up ui-base after ensuring you have all dependencies listed above installed in your environment.
 
-1. in terminal, navigate to the root directory (where Gruntfile.js is located)
+1. add hosts entry to etc/hosts `127.0.0.1 ui-base.dev www.ui-base.dev`
+2. in terminal, navigate to the root directory (where Gruntfile.js is located)
 	* install node modules: `npm install`
     * install bower packages: `bower install`
-2. in the same directory run one of the following commands
+3. in the same directory run one of the following commands
 	* `grunt serve`: runs all dev tasks
     * `grunt test`: runs all jasmine unit tests
     * `grunt build`: runs build tasks that minify & concat code and outputs the files to the `/dist` directory.
