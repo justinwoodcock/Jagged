@@ -36,7 +36,7 @@ module.exports = function(grunt) {
                 tasks: ['newer:jshint:test', 'karma']
             },
             compass: {
-                files: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
+                files: ['<%= config.app %>/global/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
         // Make sure our code is beautiful.
         // jsbeautifier is currently setup to look at our JS, HTML & CSS.
         jsbeautifier: {
-            files: ['<%= config.app %>/js/**/*.js', '<%= config.app %>/css/*.css', '<%= config.app %>/views/**/*.html'],
+            files: ['<%= config.app %>/js/**/*.js', '<%= config.app %>/css/*.css', '<%= config.app %>/**/*.html'],
             options: {}
         },
 
@@ -137,7 +137,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '.tmp/css/',
-                    src: '{,*/}*.css',
+                    src: 'css/{,*/}*.css',
                     dest: '.tmp/config/'
                 }]
             }
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
                 ignorePath: '<%= config.app %>/'
             },
             sass: {
-                src: ['<%= config.app %>/sass/{,*/}*.{scss,sass}'],
+                src: ['<%= config.app %>/global/{,*/}*.{scss,sass}'],
                 ignorePath: '<%= config.app %>/bower_components/'
             }
         },
@@ -158,7 +158,7 @@ module.exports = function(grunt) {
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
-                sassDir: '<%= config.app %>/sass',
+                sassDir: '<%= config.app %>/global',
                 cssDir: '.tmp/css',
                 generatedImagesDir: '.tmp/images/generated',
                 imagesDir: '<%= config.app %>/images',
@@ -189,10 +189,9 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= config.dist %>/js/**/*.js',
-                        '<%= config.dist %>/css/**/*.css',
-                        '<%= config.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
-                        '<%= config.dist %>/font/*'
+                        '<%= config.dist %>/**/*.js',
+                        '<%= config.dist %>/**/*.css',
+                        '<%= config.dist %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
                     ]
                 }
             }
@@ -286,10 +285,9 @@ module.exports = function(grunt) {
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
-                        '*.html',
-                        'views/{,*/}*.html',
+                        '**/*.html',
                         'images/{,*/}*.{webp}',
-                        'fonts/*'
+                        'font/*'
                     ]
                 }, {
                     expand: true,

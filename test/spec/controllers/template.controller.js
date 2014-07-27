@@ -1,4 +1,4 @@
-describe('MainController', function() {
+describe('TemplateController', function() {
     var scope, $httpBackend;
 
     beforeEach(function() {
