@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                 tasks: ['bowerInstall']
             },
             js: {
-                files: ['<%= config.app %>/js/{,*/}*.js'],
+                files: ['<%= config.app %>/components/**/*.js', '<%= config.app %>/app.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
                     livereload: true
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
                 tasks: ['newer:jshint:test', 'karma']
             },
             compass: {
-                files: ['<%= config.app %>/global/{,*/}*.{scss,sass}'],
+                files: ['<%= config.app %>/components/**/*.{scss,sass}', '<%= config.app %>/style.sass'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
                 ignorePath: '<%= config.app %>/'
             },
             sass: {
-                src: ['<%= config.app %>/global/{,*/}*.{scss,sass}'],
+                src: ['<%= config.app %>/components/{,*/}*.{scss,sass}'],
                 ignorePath: '<%= config.app %>/bower_components/'
             }
         },
@@ -158,11 +158,11 @@ module.exports = function(grunt) {
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
-                sassDir: '<%= config.app %>/global',
+                sassDir: '<%= config.app %>',
                 cssDir: '.tmp/css',
                 generatedImagesDir: '.tmp/images/generated',
                 imagesDir: '<%= config.app %>/images',
-                javasDir: '<%= config.app %>/js',
+                javasDir: '<%= config.app %>/components',
                 fontsDir: '<%= config.app %>/font',
                 importPath: '<%= config.app %>/bower_components',
                 httpImagesPath: '/images',
@@ -254,7 +254,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.dist %>',
-                    src: ['*.html', 'views/{,*/}*.html'],
+                    src: ['*.html', 'components/{,*/}*.html'],
                     dest: '<%= config.dist %>'
                 }]
             }

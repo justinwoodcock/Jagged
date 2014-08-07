@@ -28,14 +28,9 @@
             </div>
         </div>
     </header>
-    <section class="container">
-        <div class="row" id="details">
-            <div class="col-xs-12"></div>
-        </div>
-    </section>
-    <section ui-view="content">
-        <!-- This is the real app content -->
-    </section>
+    
+    <section ui-view="content"></section>
+
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -47,9 +42,9 @@
     <script src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) js/app.js -->
-    <script src="global/app.js"></script>
-    <script src="_template/template.controller.js"></script>
-    <script src="info/info.controller.js"></script>
+    <script src="app.js"></script>
+    <script src="components/_template/template.controller.js"></script>
+    <script src="components/info/info.controller.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -11,7 +11,7 @@ uiBase.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         url: '/info',
         views: {
             content: {
-                templateUrl: '/info/index.html',
+                templateUrl: '/components/info/index.html',
                 controller: 'InfoController'
             }
         }
@@ -19,7 +19,7 @@ uiBase.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         url: '/template',
         views: {
             content: {
-                templateUrl: '/_template/index.html',
+                templateUrl: '/components/_template/index.html',
                 controller: 'TemplateController'
             }
         }
