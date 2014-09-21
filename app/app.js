@@ -27,3 +27,14 @@ uiBase.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
     $urlRouterProvider.otherwise('/info');
 });
+
+uiBase.config(['RestangularProvider',
+    function(RestangularProvider) {
+        var apiUrl = 'https://api.ui-base.dev';
+        RestangularProvider.setBaseUrl(apiUrl);
+        RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
+            var extractedData = data.data;
+            return extractedData;
+        });
+    }
+]);
