@@ -7,7 +7,7 @@ uiBase.controller('InfoController', ['$scope',
             item: 'add restangular example',
             description: 'a basic implementation that someone could pick up and run with.',
             githubUrl: 'https://elephanthub.net/ui/ui-base/issues/3',
-            completed: false
+            completed: true
         }, {
             item: 'add unit test',
             description: 'just one basic test for an example, we\'ll check the version number.',

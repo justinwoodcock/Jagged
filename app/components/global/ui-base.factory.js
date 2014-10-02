@@ -1,8 +1,8 @@
 uiBase.factory('UiBaseFactory', ['Restangular',
     function(Restangular) {
         return {
-            getThings: function(param) {
-                return Restangular.getList(param);
+            createEntity: function(entity) {
+                return Restangular.all(entity).getList();
             }
         }
     }

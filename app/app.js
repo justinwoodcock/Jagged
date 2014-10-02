@@ -2,7 +2,8 @@
 
 var uiBase = angular.module('uiBase', [
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'restangular'
 ]);
 
 uiBase.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
