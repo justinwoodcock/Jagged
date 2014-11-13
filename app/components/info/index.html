@@ -14,7 +14,7 @@
                 <h2><i class="icon-th-list"></i> Todos</h2>
                 <div class="list-group" ng-repeat="todo in todos">
                     <a href="{{todo.githubUrl}}" class="list-group-item" ng-class="{active: todo.completed}" title="checkout the github issue: {{todo.githubUrl}}">
-                        <h4 class="list-group-item-heading"><i class="icon-check" ng-show="todo.completed"></i> {{todo.item}}</h4>
+                        <h4 class="list-group-item-heading"><i class="icon-check" ng-show="todo.completed"></i> {{todo.title}}</h4>
                         <p class="list-group-item-text">{{todo.description}}</p>
                     </a>
                 </div>
@@ -22,7 +22,7 @@
         </div>
         <div id="thirdparty" class="col-xs-6">
             <div class="well">
-                <h2><i class="icon-github"></i> Thirdparty Libraries</h2>
+                <h2><i class="icon-github"></i>Libraries</h2>
                 <ul class="list-unstyled">
                     <li>
                         <a href="#" target="_blank">AngularJS:</a> our js framework
@@ -49,7 +49,7 @@
             <div class="alert alert-info">
                 <i class="icon-email"></i>
                 if anything sucks while you're using ui-base, please hit me up
-                <a href="mailto:jwoodcock@undergroundelephant.com?subject=yo justin, i'm having issues w/ UI Base." target="_blank"> via email</a>.
+                <a href="mailto:justin@digitaluprisingdesign.com?subject=yo justin, i'm having issues w/ UI Base." target="_blank"> via email</a>.
             </div>
         </div>
     </div>
