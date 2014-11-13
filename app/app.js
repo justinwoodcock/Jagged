@@ -11,17 +11,29 @@ uiBase.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider.state('info', {
         url: '/info',
         views: {
+            header: {
+                templateUrl: '/components/header/index.html'
+            },
             content: {
                 templateUrl: '/components/info/index.html',
                 controller: 'InfoController'
+            },
+            footer: {
+                templateUrl: '/components/footer/index.html'
             }
         }
     }).state('template', {
         url: '/template',
         views: {
+            header: {
+                templateUrl: '/components/header/index.html'
+            },
             content: {
                 templateUrl: '/components/_template/index.html',
                 controller: 'TemplateController'
+            },
+            footer: {
+                templateUrl: '/components/footer/index.html'
             }
         }
     });
