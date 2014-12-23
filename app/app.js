@@ -1,6 +1,7 @@
 'use strict';
 
 var uiBase = angular.module('uiBase', [
+    'ngAnimate',
     'ui.router',
     'ui.bootstrap',
     'restangular'
@@ -8,37 +9,37 @@ var uiBase = angular.module('uiBase', [
 
 uiBase.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.defaults.useXDomain = true;
-    $stateProvider.state('info', {
-        url: '/info',
+    $stateProvider.state('home', {
+        url: '/',
         views: {
             header: {
-                templateUrl: '/components/header/index.html'
+                templateUrl: '/components/header/header.index.html'
             },
             content: {
-                templateUrl: '/components/info/index.html',
+                templateUrl: '/components/info/info.index.html',
                 controller: 'InfoController'
             },
             footer: {
-                templateUrl: '/components/footer/index.html'
+                templateUrl: '/components/footer/footer.index.html'
             }
         }
     }).state('template', {
         url: '/template',
         views: {
             header: {
-                templateUrl: '/components/header/index.html'
+                templateUrl: '/components/header/header.index.html'
             },
             content: {
-                templateUrl: '/components/_template/index.html',
+                templateUrl: '/components/_template/template.index.html',
                 controller: 'TemplateController'
             },
             footer: {
-                templateUrl: '/components/footer/index.html'
+                templateUrl: '/components/footer/footer.index.html'
             }
         }
     });
 
-    $urlRouterProvider.otherwise('/info');
+    $urlRouterProvider.otherwise('/');
 });
 
 uiBase.config(['RestangularProvider',
