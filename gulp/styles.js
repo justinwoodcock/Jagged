@@ -13,6 +13,9 @@ gulp.task('styles', function() {
     };
 
     var injectFiles = gulp.src([
+        paths.src + '/app/jagged/variables.scss',
+        paths.src + '/app/jagged/mixins.scss',
+        paths.src + '/app/jagged/global.scss',
         paths.src + '/{app,components}/**/*.scss',
         '!' + paths.src + '/app/jagged.scss',
         '!' + paths.src + '/app/vendor.scss'
