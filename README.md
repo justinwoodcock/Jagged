@@ -47,11 +47,14 @@ These are our frontend packages that are maintained with bower
 ├──  src/
 │   ├──  app/
 │   │   ├──  jagged/
+│   │   │   ├──  global.scss
 │   │   │   ├──  jagged.config.js
 │   │   │   ├──  jagged.controller.js
 │   │   │   ├──  jagged.controller.spec.js
 │   │   │   ├──  jagged.factory.js
 │   │   │   ├──  jagged.routing.js
+│   │   │   ├──  mixins.scss
+│   │   │   └──  variables.scss
 │   │   ├──  jagged.module.js
 │   │   ├──  jagged.scss
 │   │   └──  vendor.scss
@@ -65,7 +68,7 @@ These are our frontend packages that are maintained with bower
 │   │   │   ├──  template.index.html
 │   │   │   └──  template.scss
 │   │   ├──  auth/
-│   │   │   ├──  auth.factory.js
+│   │   │   └──  auth.factory.js
 │   │   ├──  footer/
 │   │   │   ├──  footer.index.html
 │   │   │   └──  footer.scss
