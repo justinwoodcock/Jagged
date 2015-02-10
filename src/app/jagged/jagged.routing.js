@@ -13,7 +13,8 @@ angular.module('jagged').config(function($stateProvider, $urlRouterProvider, $ht
                 controller: 'HomeController'
             },
             footer: {
-                templateUrl: 'components/footer/footer.index.html'
+                templateUrl: 'components/footer/footer.index.html',
+                controller: 'FooterController'
             }
         }
     });
