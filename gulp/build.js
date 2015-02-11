@@ -53,6 +53,7 @@ gulp.task('html', ['inject', 'partials'], function() {
         .pipe(cssFilter)
         .pipe($.replace('../bootstrap-sass-official/assets/fonts/bootstrap', 'fonts'))
         .pipe($.replace('../assets/fonts/fontello/font', '../fonts'))
+        .pipe($.replace('/assets/images', '../images'))
         .pipe($.csso())
         .pipe(cssFilter.restore())
         .pipe(assets.restore())
