@@ -13,7 +13,8 @@ angular.module('jagged').directive('imgLoadClass', function() {
             var el = $element[0];
             el.setAttribute('class', 'invisible');
             el.onload = function() {
-                el.removeAttribute('class', 'invisible').setAttribute('class', classToAdd);
+                el.removeAttribute('class', 'invisible');
+                el.setAttribute('class', classToAdd);
             }
         }
     }
