@@ -10,6 +10,10 @@ angular.module('jagged').controller('HomeController', ['$scope',
                 githubUrl: 'https://github.com/justinwoodcock',
                 completed: false
             }
-        ]
+        ];
+        $scope.alerts.push({
+            type: 'info',
+            message: 'There are ' + $scope.todos.length + ' todos that need to be done.'
+        });
     }
 ]);

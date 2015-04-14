@@ -74,3 +74,10 @@ input {
         @include effect(fadeOut);
     }
 }
+
+.alert-container {
+    position: fixed;
+    width: 100%;
+    right: 0;
+    z-index: 99;
+}

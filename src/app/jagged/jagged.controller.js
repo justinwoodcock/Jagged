@@ -6,8 +6,12 @@ angular.module('jagged').controller('JaggedController', ['$scope', '$rootScope',
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
             $scope.state = toState;
             $scope.state.params = toParams;
+            $scope.alerts = [];
         });
         // set the sessionData variable for localStorage data to be used throughout the app.
         $scope.sessionData = JaggedFactory.getStorage();
+        $scope.closeAlert = function(index) {
+            $scope.alerts.splice(index, 1);
+        };
     }
 ]);
