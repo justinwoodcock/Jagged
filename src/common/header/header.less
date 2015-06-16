@@ -1,0 +1,41 @@
+.user-dropdown {
+	position: relative;
+	top: -2px;
+	.user-avatar {
+		width: 48px;
+		max-width: 48px;
+		height: 48px;
+		border-radius: 24px;
+	}
+	md-select {
+		padding: 0;
+		&:focus {
+			.md-select-label.md-placeholder {
+				color: transparent;
+			}
+		}
+	}
+	
+	.md-select-label {
+		padding: 0;
+		border-bottom: none;
+		width: 52px;
+		height: 52px;
+		max-width: 52px;
+		max-height: 52px;
+		min-width: 52px;
+		min-height: 52px;
+		border: 0 !important;
+		:first-child {
+			width: 48px;
+			height: 48px;
+		}
+		.md-select-icon {
+			display: none;
+			margin: 0;
+		}
+	}
+}
+.md-select-menu-container {
+	margin: 56px 0 0 10px;
+}

@@ -1,0 +1,16 @@
+[{
+    "stateName": "login",
+    "urlPrefix": "/login",
+    "type": "load",
+    "src": "app/login/login"
+}, {
+    "stateName": "user",
+    "urlPrefix": "/user",
+    "type": "load",
+    "src": "app/user/user"
+}, {
+    "stateName": "_module",
+    "urlPrefix": "/_module",
+    "type": "load",
+    "src": "app/_module/_module"
+}]

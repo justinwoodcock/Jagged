@@ -1,6 +1,8 @@
-node_modules/
-bower_components/
-.sass-cache/
-.tmp/
-dist/
-.DS_Store
+.idea
+coverage
+dist
+test-e2e-compile
+jspm_packages
+node_modules
+
+npm-debug.log

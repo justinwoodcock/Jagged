@@ -1,0 +1,15 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button menu-button" aria-label="Menu" ng-click="toggleNav('nav')" ng-if="state.name!=='login'" hide-gt-md>
+            <i class="material-icons">menu</i>
+        </md-button>
+        <h2>Jagged</h2>
+        <span flex></span>
+        <div class="user-dropdown" ng-if="state.name!=='login'">
+	        <md-select ng-model="someModel">
+	            <md-select-label><img class="user-avatar" ng-src="{{user.picture.thumbnail}}"></md-select-label>
+	            <md-option ng-click="logout()"><md-icon><i class="material-icons">lock</i></md-icon> Logout</md-option>
+	        </md-select>
+        </div>
+    </div>
+</md-toolbar>

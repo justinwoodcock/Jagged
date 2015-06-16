@@ -1,0 +1,37 @@
+<md-content layout="row" layout-align="center">
+    <md-card id="loginCard" layout="column">
+        <img ng-src="http://lorempicsum.com/simpsons/627/300/4" class="md-card-image">
+        <md-card-content>
+                <h1>Login</h1>
+                <p>This is a login form, hover over inputs to reveal credentials, or just <a id="fill-creds" href="#" ng-click="fillCreds()">click here</a>.</p>
+            <form name="loginForm" ng-submit="login()">
+                <md-input-container>
+                    <md-icon class="md-primary"><i class="material-icons">email</i></md-icon>
+                    <input type="email" name="userEmail" required ng-model="creds.email" placeholder="Username">
+                    <div ng-messages="loginForm.userEmail.$error" ng-if="loginForm.userEmail.$dirty && loginForm.userEmail.$invalid">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                    <md-tooltip>
+                        {{user.email}}
+                    </md-tooltip>
+                </md-input-container>
+                <md-input-container flex>
+                    <md-icon class="md-primary"><i class="material-icons">vpn_key</i></md-icon>
+                    <input type="password" name="userPassword" required ng-model="creds.password" placeholder="Password">
+                    <div ng-messages="loginForm.userPassword.$error" ng-if="loginForm.userPassword.$dirty && loginForm.userPassword.$invalid">
+                        <div ng-message="required">This is required.</div>
+                    </div>
+                    <md-tooltip>
+                        {{user.password}}
+                    </md-tooltip>
+                </md-input-container>
+                <md-button id="login-submit-button" type="submit" flex class="md-fab md-primary">
+                    <i class="material-icons">done</i>
+                    <md-tooltip>
+                        Login
+                    </md-tooltip>
+                </md-button>
+            </form>
+        </md-card-content>
+    </md-card>
+</md-content>

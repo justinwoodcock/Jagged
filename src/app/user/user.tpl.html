@@ -1,0 +1,40 @@
+<md-content layout-padding>
+    <h1>User profile</h1>
+    <p>Some generic user profile data from <a href="http://randomuser.me" target="_blank">www.randomuser.me</a>.</p>
+</md-content>
+<md-content layout-padding>
+    <form name="userForm">
+        <div layout layout-sm="column">
+            <md-input-container flex>
+                <label>First name</label>
+                <input ng-model="user.name.first">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Last Name</label>
+                <input ng-model="user.name.last">
+            </md-input-container>
+        </div>
+        <md-input-container>
+            <label>Email</label>
+            <input ng-model="user.email" type="email">
+        </md-input-container>
+        <md-input-container flex>
+            <label>Address</label>
+            <input ng-model="user.location.street">
+        </md-input-container>
+        <div layout layout-sm="column">
+            <md-input-container flex>
+                <label>City</label>
+                <input ng-model="user.location.city">
+            </md-input-container>
+            <md-input-container flex>
+                <label>State</label>
+                <input ng-model="user.location.state">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Postal Code</label>
+                <input ng-model="user.location.zip">
+            </md-input-container>
+        </div>
+    </form>
+</md-content>
